@@ -1,0 +1,51 @@
+# ============================================================
+# docker-compose.yml — Drilling Report Q&A Bot
+# ============================================================
+# Docker Compose lets us configure and run our container
+# with a simple command: docker-compose up
+# ============================================================
+
+version: '3.8'
+
+services:
+
+  # Our main application service
+  drilling-qa-app:
+
+    # Build from our Dockerfile in the current directory
+    build: .
+
+    # Name the running container
+    container_name: drilling-report-qa
+
+    # Port mapping: YOUR_COMPUTER:CONTAINER
+    # This means: when you open localhost:8501 in your browser,
+    # it connects to port 8501 inside the container
+    ports:
+      - "8501:8501"
+
+    # Volume mounts: share folders between Windows and container
+    # Format: ./local_folder:/container_folder
+    # This means changes on either side are reflected immediately
+    volumes:
+      # Share the data folder — reports you upload persist here
+      - ./data:/app/data
+      # Share the models folder
+      - ./models:/app/models
+      # Share source code — code changes reflect immediately
+      - ./src:/app/src
+
+    # Environment variables passed into the container
+    # These override what is in the Dockerfile
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ANONYMIZED_TELEMETRY=False
+      - CHROMA_TELEMETRY=False
+
+    # Load our .env file into the container
+    # All variables from .env become available inside
+    env_file:
+      - .env
+
+    # Restart policy: if the app crashes, restart it automatically
+    restart: unless-stopped

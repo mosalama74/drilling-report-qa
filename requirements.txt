@@ -1,0 +1,79 @@
+# ============================================================
+# PROJECT 1: Drilling Report Q&A Bot — Full Version
+# requirements.txt
+#
+# ============================================================
+
+# ------------------------------------------------------------
+# PDF PROCESSING
+# ------------------------------------------------------------
+
+# Digital PDF text extraction
+pdfplumber==0.11.0
+
+# Convert PDF pages to images (needed for scanned PDFs)
+pdf2image==1.17.0
+
+# Python bridge to Tesseract OCR engine
+# NOTE: Tesseract engine itself must be installed separately
+# (see Phase 2 Step 3 for instructions)
+pytesseract==0.3.13
+
+# Image processing library (required by pytesseract)
+Pillow==10.4.0
+
+# ------------------------------------------------------------
+# LANGCHAIN — AI ORCHESTRATION FRAMEWORK
+# ------------------------------------------------------------
+
+langchain==0.2.16
+langchain-community==0.2.16
+langchain-core==0.2.38
+
+# ------------------------------------------------------------
+# VECTOR DATABASE — CHROMADB 
+# Automatically persists index to disk between sessions
+# ------------------------------------------------------------
+
+chromadb==0.5.5
+
+# ------------------------------------------------------------
+# EMBEDDINGS — CONVERT TEXT TO VECTORS
+# ------------------------------------------------------------
+
+sentence-transformers==3.0.1
+
+# ------------------------------------------------------------
+# HUGGINGFACE — ACCESS FREE LLM MODELS
+# ------------------------------------------------------------
+
+huggingface-hub==0.24.6
+transformers==4.44.2
+
+# ------------------------------------------------------------
+# DEEP LEARNING FRAMEWORK
+# ------------------------------------------------------------
+
+torch==2.4.0
+
+# ------------------------------------------------------------
+# WEB APPLICATION
+# ------------------------------------------------------------
+
+streamlit==1.38.0
+
+# ------------------------------------------------------------
+# UTILITIES
+# ------------------------------------------------------------
+
+# Load API keys from .env file
+python-dotenv==1.0.1
+
+# Data manipulation
+pandas==2.2.2
+numpy==1.26.4
+
+# ------------------------------------------------------------
+# NOTE: SQLite is built into Python — no installation needed
+# It handles all conversation history persistence
+# ------------------------------------------------------------

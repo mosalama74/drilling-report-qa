@@ -1,0 +1,92 @@
+# ============================================================
+# .gitignore — Drilling Report Q&A Bot
+# Files that must NEVER go to GitHub
+# ============================================================
+
+# -------------------------------------------------------
+# SECRET FILES — Contains API keys
+# NEVER upload these under any circumstances
+# -------------------------------------------------------
+.env
+.env.local
+.env.production
+*.env
+
+# -------------------------------------------------------
+# VIRTUAL ENVIRONMENT
+# Too large (hundreds of MB), not needed
+# Anyone can recreate with: pip install -r requirements.txt
+# -------------------------------------------------------
+venv/
+env/
+.venv/
+
+# -------------------------------------------------------
+# CHROMADB — Vector database storage
+# Contains indexed document data — large and machine-specific
+# Users recreate this by running batch_processor.py
+# -------------------------------------------------------
+data/chroma_db/
+
+# -------------------------------------------------------
+# SQLITE — Conversation history database
+# Contains user conversation data — private
+# -------------------------------------------------------
+data/conversation_history.db
+
+# -------------------------------------------------------
+# RAW REPORTS — May contain confidential documents
+# Users add their own documents
+# We provide generate_reports.py to create sample data
+# -------------------------------------------------------
+data/raw_reports/
+
+# -------------------------------------------------------
+# PROCESSED DATA — Intermediate files
+# -------------------------------------------------------
+data/processed/
+
+# -------------------------------------------------------
+# PYTHON CACHE — Auto-generated, not needed
+# -------------------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# -------------------------------------------------------
+# HUGGINGFACE MODEL CACHE — Very large files (hundreds of MB)
+# Downloaded automatically when needed
+# -------------------------------------------------------
+.cache/
+models/
+
+# -------------------------------------------------------
+# PROGRESS FILES — Temporary batch processing state
+# -------------------------------------------------------
+data/processed/.progress_*
+
+# -------------------------------------------------------
+# JUPYTER NOTEBOOKS — Checkpoints
+# -------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb
+
+# -------------------------------------------------------
+# DOCKER — Runtime files
+# -------------------------------------------------------
+.dockerignore
+
+# -------------------------------------------------------
+# VS CODE SETTINGS — Machine-specific
+# -------------------------------------------------------
+.vscode/settings.json
+.vscode/launch.json
+
+# -------------------------------------------------------
+# SYSTEM FILES
+# -------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
